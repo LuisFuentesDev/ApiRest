@@ -15,10 +15,10 @@ public class Artist {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	private String artistName;
 	private String firstName;
 	private String lastName;
 	private LocalDate birthdate;
 	private Integer age;
-	
-	
+
 }
