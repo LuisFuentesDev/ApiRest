@@ -16,6 +16,7 @@ http://localhost:8080/h2-console/
 Para crear un registro:
 
 Ejemplo:
+
 {
     "firstName": "Tulio",
     
