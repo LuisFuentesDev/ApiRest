@@ -18,8 +18,11 @@ Para crear un registro:
 Ejemplo:
 {
     "firstName": "Tulio",
+    
     "lastName": "Triviño",
+    
     "birthdate": "1985-12-16",
+    
     "age": "38"
 }
 
