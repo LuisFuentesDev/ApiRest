@@ -9,6 +9,17 @@ Los datos a registrar son:
 - Edad actual
 
 # Endpoints
+Para crear un registro:
+
+```
+{
+    "firstName": "Tulio",
+    "lastName": "Triviño",
+    "birthdate": "1985-12-16",
+    "age": "38"
+}
+
+```
 
 Link para acceder a la base de datos:
 http://localhost:8080/h2-console/
