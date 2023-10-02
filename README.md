@@ -11,7 +11,7 @@ Los datos a registrar son:
 Link para acceder a la base de datos
 http://localhost:8080/h2-console/
 
-#Endpoints
+# Endpoints
 Para obtener el listado de artistas registrados:
 - api/artists
 
