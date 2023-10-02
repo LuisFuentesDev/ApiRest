@@ -9,6 +9,12 @@ Los datos a registrar son:
 - Edad actual
 
 # Endpoints
+
+Link para acceder a la base de datos:
+```
+http://localhost:8080/h2-console/
+```
+
 Para crear un registro:
 
 ```
@@ -20,12 +26,6 @@ Para crear un registro:
 }
 
 ```
-
-Link para acceder a la base de datos:
-```
-http://localhost:8080/h2-console/
-```
-
 Para obtener el listado de artistas registrados:
 ```
 api/artists
