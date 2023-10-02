@@ -34,13 +34,15 @@ api/artists
 Para obtener un artista por el id:
 ```
 api/artists/{id}
-```
+
   Ejemplo: api/artists/13
+```
 
 Para eliminar un artista por el id:
 ```
 api/artists/{id}
-```
+
   Ejemplo: api/artists/13
+```
 
 
