@@ -22,17 +22,25 @@ Para crear un registro:
 ```
 
 Link para acceder a la base de datos:
+```
 http://localhost:8080/h2-console/
+```
 
 Para obtener el listado de artistas registrados:
-- api/artists
+```
+api/artists
+```
 
 Para obtener un artista por el id:
-- api/artists/{id}
+```
+api/artists/{id}
+```
   Ejemplo: api/artists/13
 
 Para eliminar un artista por el id:
-- api/artists/{id}
+```
+api/artists/{id}
+```
   Ejemplo: api/artists/13
 
 
