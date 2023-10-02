@@ -3,6 +3,7 @@
 Api creada para almacenar información sobre artistas.
 
 Los datos a registrar son:
+- Nombre Artista
 - Primer nombre
 - Primer Apellido
 - Fecha de nacimiento
@@ -25,6 +26,7 @@ Para crear un registro:
 
 ```
 {
+    "artistName": "Tulio Triviño"
     "firstName": "Tulio",
     "lastName": "Triviño",
     "birthdate": "1985-12-16",
