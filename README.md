@@ -8,7 +8,7 @@ Los datos a registrar son:
 - Fecha de nacimiento
 - Edad actual
 
-# Endpoints
+# Acceso a la base de datos
 
 Link para acceder a la base de datos:
 ```
@@ -20,7 +20,7 @@ En JBDC URL, ingresar lo siguiente para acceder a la base de datos:
 ```
 jdbc:h2:mem:apidb
 ```
-
+# Endpoints
 Para crear un registro:
 
 ```
