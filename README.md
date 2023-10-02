@@ -14,7 +14,7 @@ Link para acceder a la base de datos:
 ```
 http://localhost:8080/h2-console/
 ```
-
+<img width="450" alt="Captura de pantalla 2023-10-02 a la(s) 11 33 30" src="https://github.com/LuisFuentesDev/ApiRest/assets/136398930/90224bcb-3507-4ab4-992a-835ba499a43b">
 Para crear un registro:
 
 ```
