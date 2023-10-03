@@ -1,3 +1,4 @@
+[
 {
     "artistName": "Shakira",
     "firstName": "Shakira",
@@ -12,3 +13,4 @@
     "birthdate": "1991-02-14",
     "age": "32"
 }
+]
