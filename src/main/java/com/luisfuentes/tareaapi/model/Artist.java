@@ -25,7 +25,7 @@ public class Artist {
 	private Integer age;
 
 	
-	@OneToMany(mappedBy = "artist", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "artist", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@PrimaryKeyJoinColumn
     @JsonManagedReference
 	List<Album> albums;
