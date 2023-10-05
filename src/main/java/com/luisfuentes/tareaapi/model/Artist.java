@@ -1,6 +1,9 @@
 package com.luisfuentes.tareaapi.model;
 
 import java.time.LocalDate;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -18,7 +21,12 @@ public class Artist {
 	private String artistName;
 	private String firstName;
 	private String lastName;
-	private LocalDate birthdate;
+	private LocalDate birthDate;
 	private Integer age;
 
+	
+	@OneToMany(mappedBy = "artist", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@PrimaryKeyJoinColumn
+    @JsonManagedReference
+	List<Album> albums;
 }

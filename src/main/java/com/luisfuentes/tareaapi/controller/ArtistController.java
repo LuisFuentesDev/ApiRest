@@ -1,5 +1,6 @@
 package com.luisfuentes.tareaapi.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.luisfuentes.tareaapi.Service.ArtistService;
+import com.luisfuentes.tareaapi.model.Album;
 import com.luisfuentes.tareaapi.model.Artist;
 
 @RestController
@@ -23,6 +25,13 @@ public class ArtistController {
 
 	@PostMapping
 	public Artist createArtist(@RequestBody Artist artist) {
+	/*	List<Album> albums = new ArrayList<>();
+		if(artist.getAlbums().size()>0) {
+			for(Album a:artist.getAlbums()) {
+				albums.add(a);
+			}
+		}
+		artist.setAlbums(albums);*/
 		return artistService.createArtist(artist);
 	}
 
