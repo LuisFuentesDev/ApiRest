@@ -24,7 +24,7 @@ jdbc:h2:mem:apidb
 # Endpoints
 Para crear un registro:
 
-```
+```JSON
 {
     "artistName": "Tulio Triviño"
     "firstName": "Tulio",
