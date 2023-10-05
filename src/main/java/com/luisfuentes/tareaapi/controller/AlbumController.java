@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.luisfuentes.tareaapi.Service.AlbumService;
+import com.luisfuentes.tareaapi.Service.ArtistService;
 import com.luisfuentes.tareaapi.model.Album;
+import com.luisfuentes.tareaapi.model.Artist;
 
 @RestController
 @RequestMapping("api/album")
@@ -21,10 +23,14 @@ public class AlbumController {
 	@Autowired
 	private AlbumService albumService;
 
-	@PostMapping
-	public Album createAlbum(@RequestBody Album album) {
-		return albumService.createAlbum(album);
-	}
+	@Autowired
+	private ArtistService artistService;
+
+	/*
+	 * @PostMapping("/{id}") public Album createAlbum(@RequestBody Album
+	 * album, @PathVariable Long id) { Artist a = artistService.getArtistById(id);
+	 * album.setArtist(a); return albumService.createAlbum(album); }
+	 */
 
 	@GetMapping
 	public List<Album> getAllAlbum() {
@@ -39,5 +45,10 @@ public class AlbumController {
 	@DeleteMapping("{id}")
 	public void deleteAlbumById(@PathVariable("id") Long id) {
 		albumService.deleteAlbum(id);
+	}
+
+	@PostMapping
+	public Album createAlbum(@RequestBody Album album) {
+		return albumService.createAlbum(album);
 	}
 }
