@@ -1,13 +1,18 @@
 # ARTIST API
 
-Api creada para almacenar información sobre artistas.
+Api creada para almacenar información sobre artistas y albunes.
 
-Los datos a registrar son:
+La entidad principal registra lo siguiente:
 - Nombre Artista
 - Primer nombre
 - Primer Apellido
 - Fecha de nacimiento
 - Edad actual
+
+La entidad secundaria registra lo siguiente:
+- Nombre del álbum
+- Total de canciones
+- Duración del álbum 
 
 # Acceso a la base de datos
 
@@ -22,35 +27,64 @@ En JBDC URL, ingresar lo siguiente para acceder a la base de datos:
 jdbc:h2:mem:apidb
 ```
 # Endpoints
-Para crear un registro:
+Para crear un registro de artista y albunes:
 
 ```JSON
 {
-    "artistName": "Tulio Triviño"
-    "firstName": "Tulio",
-    "lastName": "Triviño",
-    "birthdate": "1985-12-16",
-    "age": "38"
+    "artistName": "Shakira",
+    "firstName": "Shakira",
+    "lastName": "Mebarak",
+    "birthDate": "1997-02-02",
+    "age": 46,
+    "albums": [
+        {
+            "nameAlbum": " Pies descalzos",
+            "totalSongs":11,
+            "albumDuration": 41
+        },
+        {
+            "nameAlbum": "Grandes éxitos",
+            "totalSongs": 15,
+            "albumDuration": 52
+        }
+    ]
 }
 
 ```
-Para obtener el listado de artistas registrados:
+Para obtener el listado de artistas:
 ```
-api/artists
+api/artist
+```
+
+Para obtener el listado de albunes:
+```
+api/album
 ```
 
 Para obtener un artista por el id:
 ```
-api/artists/{id}
+api/artist/{id}
 
-  Ejemplo: api/artists/13
+  Ejemplo: api/artist/13
+```
+Para obtener un álbum por el id:
+```
+api/album/{id}
+
+  Ejemplo: api/album/13
 ```
 
 Para eliminar un artista por el id:
 ```
-api/artists/{id}
+api/artist/{id}
 
-  Ejemplo: api/artists/13
+  Ejemplo: api/album/13
 ```
 
+Para eliminar un álbum por el id:
+```
+api/album/{id}
+
+  Ejemplo: api/album/13
+```
 
