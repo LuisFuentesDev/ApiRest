@@ -1,6 +1,6 @@
 # ARTIST API
 
-Api creada para almacenar información sobre artistas y albunes.
+Api creada para almacenar información sobre artistas y álbumes.
 
 La entidad principal registra lo siguiente:
 - Nombre Artista
@@ -27,7 +27,7 @@ En JBDC URL, ingresar lo siguiente para acceder a la base de datos:
 jdbc:h2:mem:apidb
 ```
 # Endpoints
-Para crear un registro de artista y albunes:
+Para crear un registro de artista y albumes:
 
 ```JSON
 {
@@ -56,7 +56,7 @@ Para obtener el listado de artistas:
 api/artist
 ```
 
-Para obtener el listado de albunes:
+Para obtener el listado de albumes:
 ```
 api/album
 ```
