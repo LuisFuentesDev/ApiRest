@@ -44,6 +44,9 @@ public class AlbumController {
 
 	@PutMapping
 	public Album updateAlbum(@RequestBody Album album) {
-		return albumService.createAlbum(album);
+
+		Long albumId = album.getId();
+
+		return albumService.updateAlbum(albumId, album);
 	}
 }

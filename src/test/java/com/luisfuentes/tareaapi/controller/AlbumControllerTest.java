@@ -5,16 +5,18 @@ import com.luisfuentes.tareaapi.model.Album;
 import com.luisfuentes.tareaapi.Service.AlbumService;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.hamcrest.CoreMatchers.is;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -25,7 +27,7 @@ class AlbumControllerTest {
 	@Autowired
 	private MockMvc mockMvc;
 
-	@Mock
+	@MockBean
 	private AlbumService albumService;
 
 	@InjectMocks
@@ -37,8 +39,8 @@ class AlbumControllerTest {
 	@Test
 	void testGetAllAlbum() throws Exception {
 		// Given
-		List<Album> exampleAlbums = new ArrayList<>();
-		when(albumService.getAllAlbum()).thenReturn(exampleAlbums);
+		List<Album> album = new ArrayList<>();
+		when(albumService.getAllAlbum()).thenReturn(album);
 
 		// When/Then
 		mockMvc.perform(get("/api/album")).andExpect(status().isOk()).andExpect(jsonPath("$").isArray());
@@ -48,9 +50,9 @@ class AlbumControllerTest {
 	void testSearchAlbumById() throws Exception {
 		// Given
 		Long albumId = 1L;
-		Album exampleAlbum = new Album();
-		exampleAlbum.setId(albumId);
-		when(albumService.getAlbumById(albumId)).thenReturn(exampleAlbum);
+		Album album = new Album();
+		album.setId(albumId);
+		when(albumService.getAlbumById(albumId)).thenReturn(album);
 
 		// When/Then
 		mockMvc.perform(get("/api/album/{id}", albumId)).andExpect(status().isOk())
@@ -60,36 +62,58 @@ class AlbumControllerTest {
 	@Test
 	void testDeleteAlbumById() throws Exception {
 		// Given
-		Long albumIdToDelete = 1L;
+		Long albumId = 1L;
 
 		// When/Then
-		mockMvc.perform(delete("/api/album/{id}", albumIdToDelete)).andExpect(status().isOk());
+		mockMvc.perform(delete("/api/album/{id}", albumId)).andExpect(status().isOk());
 
 		
-		verify(albumService, times(1)).deleteAlbum(albumIdToDelete);
+		verify(albumService, times(1)).deleteAlbum(albumId);
 	}
 
 	@Test
 	void testCreateAlbum() throws Exception {
-		// Given
-		Album albumToCreate = new Album();
-		when(albumService.createAlbum(any(Album.class))).thenReturn(albumToCreate);
+	    // Given
+	    Album album = new Album();
+	    when(albumService.createAlbum(any(Album.class))).thenReturn(album);
 
-		// When/Then
-		mockMvc.perform(post("/api/album").contentType(MediaType.APPLICATION_JSON)
-				.content(objectMapper.writeValueAsString(albumToCreate))).andExpect(status().isOk())
-				.andExpect(jsonPath("$.id").exists());
+	    // When/Then
+	    mockMvc.perform(post("/api/album")
+	            .contentType(MediaType.APPLICATION_JSON)
+	            .content(objectMapper.writeValueAsString(album)))
+	            .andExpect(status().isOk())
+	            .andExpect(jsonPath("$.id").exists())
+	            .andDo(result -> System.out.println(result.getResponse().getContentAsString()));
 	}
 
 	@Test
 	void testUpdateAlbum() throws Exception {
 		// Given
 		Album albumToUpdate = new Album();
-		when(albumService.createAlbum(any(Album.class))).thenReturn(albumToUpdate);
+		albumToUpdate.setId(1L);
+		albumToUpdate.setAlbumDuration(15);
 
-		// When/Then
-		mockMvc.perform(put("/api/album").contentType(MediaType.APPLICATION_JSON)
-				.content(objectMapper.writeValueAsString(albumToUpdate))).andExpect(status().isOk())
-				.andExpect(jsonPath("$.id").exists());
+		Album albumUpdate = new Album();
+		albumUpdate.setId(1L);
+		albumUpdate.setAlbumDuration(15);
+
+		when(albumService.updateAlbum(eq(1L), any(Album.class))).thenReturn(albumUpdate);
+
+		// When
+		mockMvc.perform(
+				put("/api/album").contentType(MediaType.APPLICATION_JSON).content(asJsonString(albumToUpdate)))
+				.andExpect(status().isOk()).andExpect(jsonPath("$.id", is(1)))
+				.andExpect(jsonPath("$.albumDuration", is(15)));
+
+		// Then
+		verify(albumService, times(1)).updateAlbum(eq(1L), any(Album.class));
+	}
+
+	private static String asJsonString(final Object obj) {
+		try {
+			return new ObjectMapper().writeValueAsString(obj);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
 	}
 }

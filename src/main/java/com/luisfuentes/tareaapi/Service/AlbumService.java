@@ -31,4 +31,20 @@ public class AlbumService {
 	public void deleteAlbum(Long id) {
 		albumRepository.deleteById(id);
 	}
+
+	public Album updateAlbum(Long id, Album updatedAlbum) {
+		Optional<Album> optionalExistingAlbum = albumRepository.findById(id);
+
+		if (optionalExistingAlbum.isPresent()) {
+			Album existingAlbum = optionalExistingAlbum.get();
+			existingAlbum.setNameAlbum(updatedAlbum.getNameAlbum());
+			existingAlbum.setNameAlbum(updatedAlbum.getNameAlbum());
+			existingAlbum.setAlbumDuration(updatedAlbum.getAlbumDuration());
+
+			return albumRepository.save(existingAlbum);
+		} else {
+
+			return null;
+		}
+	}
 }

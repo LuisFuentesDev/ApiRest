@@ -44,6 +44,9 @@ public class ArtistController {
 
 	@PutMapping
 	public Artist updateArtist(@RequestBody Artist artist) {
-		return artistService.createArtist(artist);
+
+		Long artistId = artist.getId();
+
+		return artistService.updateArtist(artistId, artist);
 	}
 }

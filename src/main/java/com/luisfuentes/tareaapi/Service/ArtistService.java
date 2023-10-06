@@ -31,4 +31,23 @@ public class ArtistService {
 	public void deleteArtist(Long id) {
 		artistRepository.deleteById(id);
 	}
+
+	public Artist updateArtist(Long id, Artist updatedArtist) {
+        Optional<Artist> optionalExistingArtist = artistRepository.findById(id);
+
+        if (optionalExistingArtist.isPresent()) {
+            Artist existingArtist = optionalExistingArtist.get();
+            existingArtist.setArtistName(updatedArtist.getArtistName());
+            existingArtist.setFirstName(updatedArtist.getFirstName());
+            existingArtist.setLastName(updatedArtist.getLastName());
+            existingArtist.setBirthDate(updatedArtist.getBirthDate());
+            existingArtist.setAge(updatedArtist.getAge());
+            
+
+            return artistRepository.save(existingArtist);
+        } else {
+          
+            return null;
+        }
+    }
 }
