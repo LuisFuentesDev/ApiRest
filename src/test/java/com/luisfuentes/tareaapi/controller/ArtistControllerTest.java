@@ -37,14 +37,22 @@ class ArtistControllerTest {
 
 	@Test
 	void testCreateArtist() throws Exception {
-		// Given
-		Artist artist = new Artist();
-		when(artistService.createArtist(any(Artist.class))).thenReturn(artist);
+	    // Given
+	    Artist artist = new Artist();
+	    when(artistService.createArtist(any(Artist.class)))
+	        .thenAnswer(invocation -> {
+	            Artist createdArtist = invocation.getArgument(0);
+	            createdArtist.setId(1L); 
+	            return createdArtist;
+	        });
 
-		// When/Then
-		mockMvc.perform(post("/api/artist").contentType(MediaType.APPLICATION_JSON)
-				.content(objectMapper.writeValueAsString(artist))).andExpect(status().isOk())
-				.andExpect(jsonPath("$.id").exists());
+	    // When/Then
+	    mockMvc.perform(post("/api/artist")
+	            .contentType(MediaType.APPLICATION_JSON)
+	            .content(objectMapper.writeValueAsString(artist)))
+	            .andExpect(status().isOk())
+	            .andExpect(jsonPath("$.id").exists())
+	            .andDo(result -> System.out.println(result.getResponse().getContentAsString()));
 	}
 
 	@Test

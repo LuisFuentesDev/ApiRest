@@ -75,7 +75,12 @@ class AlbumControllerTest {
 	void testCreateAlbum() throws Exception {
 	    // Given
 	    Album album = new Album();
-	    when(albumService.createAlbum(any(Album.class))).thenReturn(album);
+	    when(albumService.createAlbum(any(Album.class)))
+	        .thenAnswer(invocation -> {
+	            Album createdAlbum = invocation.getArgument(0);
+	            createdAlbum.setId(1L);
+	            return createdAlbum;
+	        });
 
 	    // When/Then
 	    mockMvc.perform(post("/api/album")
