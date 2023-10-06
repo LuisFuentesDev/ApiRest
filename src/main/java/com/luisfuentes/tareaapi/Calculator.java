@@ -2,36 +2,23 @@ package com.luisfuentes.tareaapi;
 
 public class Calculator {
 
-	private int num1;
-	private int num2;
-
-	public Calculator(int a, int b) {
-		num1 = a;
-		num2 = b;
+	int addition(int a, int b) {
+		return a + b;
 	}
 
-	public int addition() {
-		int result = num1 + num2;
-		return result;
+	int subtraction(int a, int b) {
+		return a - b;
 	}
 
-	public int subtraction() {
-		int result = num1 - num2;
-		return result;
+	int division(int a, int b) {
+		return a / b;
 	}
 
-	public int division() {
-		int result = num1 / num2;
-		return result;
+	int multiplication(int a, int b) {
+		return a * b;
 	}
 
-	public int multiplication() {
-		int result = num1 * num2;
-		return result;
-	}
-
-	public int module() {
-		int result = num1 % num2;
-		return result;
+	int module(int a, int b) {
+		return a % b;
 	}
 }

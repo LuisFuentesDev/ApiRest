@@ -1,44 +1,82 @@
 package com.luisfuentes.tareaapi;
 
-import static org.junit.jupiter.api.Assertions.*;
-
+import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 
 class CalculatorTest {
 
+	Calculator calculator = new Calculator();
+
 	@Test
 	void testAddition() {
-		Calculator calculator = new Calculator(20,10);
-				int result = calculator.addition();
-				assertEquals(30, result);
+
+		// given
+		int a = 10;
+		int b = 5;
+
+		// when
+		int expectedResult = calculator.addition(a, b);
+
+		// then
+		int result = 15;
+		assertThat(expectedResult).isEqualTo(result);
 	}
 
 	@Test
 	void testSubtraction() {
-		Calculator calculator = new Calculator(20,10);
-		int result = calculator.subtraction();
-		assertEquals(10, result);
+		// given
+		int a = 10;
+		int b = 5;
+
+		// when
+		int expectedResult = calculator.subtraction(a, b);
+
+		// then
+		int result = 5;
+		assertThat(expectedResult).isEqualTo(result);
+		;
 	}
 
 	@Test
 	void testDivision() {
-		Calculator calculator = new Calculator(10,2);
-		int result = calculator.division();
-		assertEquals(5, result);
+		// given
+		int a = 20;
+		int b = 5;
+
+		// when
+		int expectedResult = calculator.division(a, b);
+
+		// then
+		int result = 4;
+		assertThat(expectedResult).isEqualTo(result);
 	}
 
 	@Test
 	void testMultiplication() {
-		Calculator calculator = new Calculator(5,2);
-		int result = calculator.multiplication();
-		assertEquals(10, result);
+		// given
+		int a = 10;
+		int b = 5;
+
+		// when
+		int expectedResult = calculator.multiplication(a, b);
+
+		// then
+		int result = 50;
+		assertThat(expectedResult).isEqualTo(result);
 	}
 
 	@Test
 	void testModule() {
-		Calculator calculator = new Calculator(10,20);
-		int result = calculator.module();
-		assertEquals(10, result);
+		// given
+		int a = 5;
+		int b = 3;
+
+		// when
+		int expectedResult = calculator.module(a, b);
+
+		// then
+		int result = 2;
+		assertThat(expectedResult).isEqualTo(result);
 	}
 
 }
