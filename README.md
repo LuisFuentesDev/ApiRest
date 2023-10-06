@@ -27,52 +27,64 @@ En JBDC URL, ingresar lo siguiente para acceder a la base de datos:
 jdbc:h2:mem:apidb
 ```
 # Endpoints
-Para crear un registro:
+Para crear un registro de artista y albunes:
 
 ```JSON
 {
-    "artistName": "Tulio Triviño"
-    "firstName": "Tulio",
-    "lastName": "Triviño",
-    "birthDate": "1985-12-16",
-    "age": "38"
+    "artistName": "Shakira",
+    "firstName": "Shakira",
+    "lastName": "Mebarak",
+    "birthDate": "1997-02-02",
+    "age": 46,
+    "albums": [
+        {
+            "nameAlbum": " Pies descalzos",
+            "totalSongs":11,
+            "albumDuration": 41
+        },
+        {
+            "nameAlbum": "Grandes éxitos",
+            "totalSongs": 15,
+            "albumDuration": 52
+        }
+    ]
 }
 
 ```
 Para obtener el listado de artistas:
 ```
-api/artists
+api/artist
 ```
 
 Para obtener el listado de albunes:
 ```
-api/albums
+api/album
 ```
 
 Para obtener un artista por el id:
 ```
-api/artists/{id}
+api/artist/{id}
 
-  Ejemplo: api/artists/13
+  Ejemplo: api/artist/13
 ```
 Para obtener un álbum por el id:
 ```
-api/albums/{id}
+api/album/{id}
 
   Ejemplo: api/album/13
 ```
 
 Para eliminar un artista por el id:
 ```
-api/artists/{id}
+api/artist/{id}
 
-  Ejemplo: api/artists/13
+  Ejemplo: api/album/13
 ```
 
 Para eliminar un álbum por el id:
 ```
 api/album/{id}
 
-  Ejemplo: api/artists/13
+  Ejemplo: api/album/13
 ```
 
