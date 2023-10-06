@@ -1,13 +1,18 @@
 # ARTIST API
 
-Api creada para almacenar información sobre artistas.
+Api creada para almacenar información sobre artistas y albunes.
 
-Los datos a registrar son:
+La entidad principal registra lo siguiente:
 - Nombre Artista
 - Primer nombre
 - Primer Apellido
 - Fecha de nacimiento
 - Edad actual
+
+La entidad secundaria registra lo siguiente:
+- Nombre del álbum
+- Total de canciones
+- Duración del álbum 
 
 # Acceso a la base de datos
 
@@ -29,14 +34,19 @@ Para crear un registro:
     "artistName": "Tulio Triviño"
     "firstName": "Tulio",
     "lastName": "Triviño",
-    "birthdate": "1985-12-16",
+    "birthDate": "1985-12-16",
     "age": "38"
 }
 
 ```
-Para obtener el listado de artistas registrados:
+Para obtener el listado de artistas:
 ```
 api/artists
+```
+
+Para obtener el listado de albunes:
+```
+api/albums
 ```
 
 Para obtener un artista por el id:
@@ -44,6 +54,12 @@ Para obtener un artista por el id:
 api/artists/{id}
 
   Ejemplo: api/artists/13
+```
+Para obtener un álbum por el id:
+```
+api/albums/{id}
+
+  Ejemplo: api/album/13
 ```
 
 Para eliminar un artista por el id:
@@ -53,4 +69,10 @@ api/artists/{id}
   Ejemplo: api/artists/13
 ```
 
+Para eliminar un álbum por el id:
+```
+api/album/{id}
+
+  Ejemplo: api/artists/13
+```
 
