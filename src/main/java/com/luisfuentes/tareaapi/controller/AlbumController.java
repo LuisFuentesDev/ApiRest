@@ -22,14 +22,6 @@ public class AlbumController {
 	@Autowired
 	private AlbumService albumService;
 
-	
-
-	/*
-	 * @PostMapping("/{id}") public Album createAlbum(@RequestBody Album
-	 * album, @PathVariable Long id) { Artist a = artistService.getArtistById(id);
-	 * album.setArtist(a); return albumService.createAlbum(album); }
-	 */
-
 	@GetMapping
 	public List<Album> getAllAlbum() {
 		return albumService.getAllAlbum();
@@ -49,6 +41,7 @@ public class AlbumController {
 	public Album createAlbum(@RequestBody Album album) {
 		return albumService.createAlbum(album);
 	}
+
 	@PutMapping
 	public Album updateAlbum(@RequestBody Album album) {
 		return albumService.createAlbum(album);

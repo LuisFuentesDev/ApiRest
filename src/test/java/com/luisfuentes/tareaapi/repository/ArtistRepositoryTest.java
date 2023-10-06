@@ -19,40 +19,54 @@ class ArtistRepositoryTest {
 
 	@Test
 	public void createArtist() {
+		// Given
 		Artist artist = new Artist();
+
+		// When
 		Artist createArtist = artistRepository.save(artist);
 
+		// Then
 		assertNotNull(createArtist);
 	}
 
 	@Test
 	public void getArtistById() {
+		// Given
 		Long id = (long) 1;
+
+		// When
 		Optional<Artist> getArtistById = artistRepository.findById(id);
 
+		// Then
 		assertNotNull(getArtistById);
 	}
 
 	@Test
 	public void getAllArtist() {
+
+		// Given
 		Artist artist = new Artist();
 		artistRepository.save(artist);
 
-		
+		// When
 		List<Artist> getAllArtists = artistRepository.findAll();
 
-		
+		// Then
 		assertNotNull(getAllArtists);
 		assertFalse(getAllArtists.isEmpty());
 	}
 
 	@Test
 	public void deleteArtist() {
+
+		// Given
 		Artist artist = new Artist();
 		Artist deleteArtist = artistRepository.save(artist);
 
+		// When
 		artistRepository.deleteById(deleteArtist.getId());
 
+		// Then
 		assertFalse(artistRepository.existsById(deleteArtist.getId()));
 	}
 

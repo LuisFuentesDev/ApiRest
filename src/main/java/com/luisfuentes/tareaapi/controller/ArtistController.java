@@ -24,11 +24,6 @@ public class ArtistController {
 
 	@PostMapping
 	public Artist createArtist(@RequestBody Artist artist) {
-		/*
-		 * List<Album> albums = new ArrayList<>(); if(artist.getAlbums().size()>0) {
-		 * for(Album a:artist.getAlbums()) { albums.add(a); } }
-		 * artist.setAlbums(albums);
-		 */
 		return artistService.createArtist(artist);
 	}
 
