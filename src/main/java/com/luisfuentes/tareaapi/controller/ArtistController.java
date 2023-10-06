@@ -16,7 +16,7 @@ import com.luisfuentes.tareaapi.Service.ArtistService;
 import com.luisfuentes.tareaapi.model.Artist;
 
 @RestController
-@RequestMapping("api/artists")
+@RequestMapping("api/artist")
 public class ArtistController {
 
 	@Autowired
