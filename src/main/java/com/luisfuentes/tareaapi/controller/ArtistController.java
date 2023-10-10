@@ -33,7 +33,7 @@ public class ArtistController {
 	}
 
 	@GetMapping("{id}")
-	public Artist searchArtistById(@PathVariable("id") Long id) {
+	public Artist getArtistById(@PathVariable("id") Long id) {
 		return artistService.getArtistById(id);
 	}
 
