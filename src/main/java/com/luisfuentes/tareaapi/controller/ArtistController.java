@@ -26,7 +26,7 @@ public class ArtistController {
 	public Artist createArtist(@RequestBody Artist artist) {
 		return artistService.createArtist(artist);
 	}
-
+	
 	@GetMapping
 	public List<Artist> getAllArtist() {
 		return artistService.getAllArtist();

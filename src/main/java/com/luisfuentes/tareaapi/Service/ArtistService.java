@@ -18,12 +18,12 @@ public class ArtistService {
 	public Artist createArtist(Artist artist) {
 		return artistRepository.save(artist);
 	}
-
+	
 	public Artist getArtistById(Long id) {
 		Optional<Artist> optionalArtist = artistRepository.findById(id);
 		return optionalArtist.get();
 	}
-
+	
 	public List<Artist> getAllArtist() {
 		return artistRepository.findAll();
 	}

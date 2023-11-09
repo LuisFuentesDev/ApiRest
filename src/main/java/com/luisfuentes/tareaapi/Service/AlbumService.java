@@ -11,14 +11,14 @@ import com.luisfuentes.tareaapi.repository.AlbumRepository;
 
 @Service
 public class AlbumService {
-
+	
 	@Autowired
 	private AlbumRepository albumRepository;
 
 	public Album createAlbum(Album album) {
 		return albumRepository.save(album);
 	}
-
+	
 	public Album getAlbumById(Long id) {
 		Optional<Album> optionalAlbum = albumRepository.findById(id);
 		return optionalAlbum.get();
